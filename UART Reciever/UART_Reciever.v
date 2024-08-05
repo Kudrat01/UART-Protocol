@@ -46,6 +46,7 @@ module UART_Reciever(input clk, input serial_input, output opready,  output [7:0
                     if(clock_count == clock_per_bit/2)
                         begin
                             if(read_data == 1'b0)
+                                clock_count <= 0;
                                 state <= state_data_bit;
                             else
                                 state <= state_idle;
